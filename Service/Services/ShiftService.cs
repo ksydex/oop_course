@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Repository.Interfaces;
@@ -20,6 +21,12 @@ namespace Service.Services
             if (filter.RouteId != null) q = q.Where(x => x.RouteId == filter.RouteId);
             if (filter.DriverId != null) q = q.Where(x => x.DriverId == filter.DriverId);
             return q;
+        }
+
+        public override Task<Shift> CreateAsync(Shift entity)
+        {
+            entity.Date = entity.Date.Date;
+            return base.CreateAsync(entity);
         }
     }
 }

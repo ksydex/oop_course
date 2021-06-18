@@ -110,6 +110,13 @@ using Microsoft.EntityFrameworkCore;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\dotnet\OOP_coursework\WebApplication\Pages\Index.razor"
+using Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -118,6 +125,25 @@ using Microsoft.EntityFrameworkCore;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 14 "C:\dotnet\OOP_coursework\WebApplication\Pages\Index.razor"
+ 
+    Dictionary<string, int> Analytics { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Analytics.Add("Всего автобусов", await DbContext.Buses.CountAsync());
+        Analytics.Add("Всего водителей", await DbContext.Drivers.CountAsync());
+        Analytics.Add("Всего маршрутов", await DbContext.Routes.CountAsync());
+        Analytics.Add("Всего смен", await DbContext.Shifts.CountAsync());
+        Analytics.Add("Смен сегодня", await DbContext.Shifts.CountAsync(x => x.Date == DateTime.Today));
+        Analytics.Add("Всего остановок", await DbContext.Stops.CountAsync());
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationContext DbContext { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -129,6 +129,7 @@ using Microsoft.EntityFrameworkCore;
         { "Имя", (x) => x.FirstName },
         { "Фамилия", (x) => x.LastName },
         { "Отчество", (x) => x.MiddleName },
+        { "Дата рождения", (x) => x.DateBirthday.ToShortDateString() },
     };
 
     protected override async Task OnInitializedAsync()

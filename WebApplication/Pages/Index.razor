@@ -1,7 +1,26 @@
 ﻿@page "/"
+@using Data
+@inject ApplicationContext DbContext
 
-<h1>Hello, world!</h1>
+<h1>Добро пожаловать в систему "Автобусный парк"</h1>
 
-Welcome to your new app.
+<h4 style="margin-top: 20px">Аналитика</h4>
+@foreach (var v in Analytics)
+{
+    <h6>@v.Key @v.Value</h6>
+}
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code
+{
+    Dictionary<string, int> Analytics { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Analytics.Add("Всего автобусов", await DbContext.Buses.CountAsync());
+        Analytics.Add("Всего водителей", await DbContext.Drivers.CountAsync());
+        Analytics.Add("Всего маршрутов", await DbContext.Routes.CountAsync());
+        Analytics.Add("Всего смен", await DbContext.Shifts.CountAsync());
+        Analytics.Add("Смен сегодня", await DbContext.Shifts.CountAsync(x => x.Date == DateTime.Today));
+        Analytics.Add("Всего остановок", await DbContext.Stops.CountAsync());
+    }
+}

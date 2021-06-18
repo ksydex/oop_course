@@ -129,6 +129,7 @@ using Microsoft.EntityFrameworkCore;
         { "Маршрут", (x) => x.Route?.Name },
         { "Водитель", (x) => x.Driver?.Name },
         { "Номер автобуса", (x) => x.Bus.Plate },
+        { "Дата", (x) => x.Date.ToShortDateString() },
     };
 
     protected override async Task OnInitializedAsync()
