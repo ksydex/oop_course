@@ -1,0 +1,24 @@
+@page "/stop"
+@inject IStopService Service
+
+<EntityTable T="Stop" Config="Config" Model="Model" Name="Остановки" Remove="Delete" NewRoute="stop/new"/>
+
+@code {
+    protected List<Stop> Model;
+
+    protected readonly Dictionary<string, Func<Stop, object>> Config = new()
+    {
+        { "Id", (x) => x.Id },
+        { "Название", (x) => x.Name },
+        { "Адрес", (x) => x.Address }
+    };
+
+    protected override async Task OnInitializedAsync()
+        => Model = await Service.GetAll().ToListAsync();
+
+    private async Task Delete(int id)
+        => Model = await Service.RemoveAsync(id) switch {
+            _ => await Service.GetAll().ToListAsync()
+            };
+
+}

@@ -1,0 +1,25 @@
+@page "/driver"
+@inject IDriverService Service
+
+<EntityTable T="Driver" Config="Config" Model="Model" Name="Водители" Remove="Delete" NewRoute="driver/new"/>
+
+@code {
+    protected List<Driver> Model;
+
+    protected readonly Dictionary<string, Func<Driver, object>> Config = new()
+    {
+        { "Id", (x) => x.Id },
+        { "Имя", (x) => x.FirstName },
+        { "Фамилия", (x) => x.LastName },
+        { "Отчество", (x) => x.MiddleName },
+    };
+
+    protected override async Task OnInitializedAsync()
+        => Model = await Service.GetAll().ToListAsync();
+
+    private async Task Delete(int id)
+        => Model = await Service.RemoveAsync(id) switch {
+            _ => await Service.GetAll().ToListAsync()
+            };
+
+}

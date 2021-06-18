@@ -1,0 +1,89 @@
+@page "/route/new"
+@using Service.Services
+@inject IRouteService Service
+@inject IStopService StopService
+@inject NavigationManager NavigationManager
+
+<h6>Добавить</h6>
+<h3>Маршрут</h3>
+<hr/>
+
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                @if (Stops == null)
+                {
+                }
+                else
+                {
+                    <label class="control-label">Остановки</label>
+                    @foreach (var s in  _obj?.Route2Stops ?? new List<Route2Stop>())
+                    {
+                        <div class="d-flex">
+                            <p>@(Stops.FirstOrDefault(x => x.Id == s.StopId)?.Name)</p>
+                        </div>
+                    }
+                    <div class="d-flex">
+                        <select class="form-control" @onchange="AddStop">
+                            <option value=""></option>
+                            @foreach (var d in Stops.Where(x => _obj.Route2Stops.All(y => y.StopId != x.Id)))
+                            {
+                                <option value="@d.Id">@($"{d.Name}")</option>
+                            }
+                        </select>
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Название</label>
+                <input class="form-control" @bind="@_obj.Name"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Цена</label>
+                <input class="form-control" type="number" step="1" @bind="@_obj.Cost"/>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" @onclick="@Create" value="Сохранить"/>
+                <input type="button" class="btn btn-dark" @onclick="@Cancel" value="Отмена"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    readonly Route _obj = new() { Route2Stops = new List<Route2Stop>() };
+    List<Stop> Stops { get; set; }
+
+    private void AddStop(ChangeEventArgs e)
+    {
+        var id = int.Parse(e.Value?.ToString());
+        if (id == null) return;
+        _obj.Route2Stops.Add(new()
+        {
+            StopId = id
+        });
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Stops = await StopService.GetAll().ToListAsync();
+    }
+
+    private async Task Create()
+    {
+        await Service.CreateAsync(_obj);
+        Back();
+    }
+
+    void Cancel() => Back();
+
+    void Back() => NavigationManager.NavigateTo("route");
+}

@@ -1,0 +1,73 @@
+@using Data.Interfaces
+@using System.ComponentModel.DataAnnotations
+@typeparam T
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h4>@Name: @Model?.Count</h4>
+    <NavLink class="btn btn-primary" href="@NewRoute">
+        Добавить
+    </NavLink>
+</div>
+@if (Model is null)
+{
+    <p>
+        <em>Загрузка... !</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            @foreach (var p in Config)
+            {
+                <th>@p.Key</th>
+            }
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model.Count == 0)
+        {
+            <p class="text-body mt-3 ml-3">Список пуст</p>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @foreach (var p in Config)
+                    {
+                        <td>@p.Value(item).ToString()</td>
+                    }
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                                @onclick="@(() => Remove.InvokeAsync(((IWithId) item).Id))">
+                            Удалить
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    [Parameter, Required]
+    public string Name { get; set; }
+
+    [Parameter, Required]
+    public Dictionary<string, Func<T, object>> Config { get; set; }
+
+    [Parameter, Required]
+    public EventCallback<int> Remove { get; set; }
+
+    [Parameter, Required]
+    public IList<T> Model { get; set; }
+
+    [Parameter, Required]
+    public string NewRoute { get; set; }
+
+}

@@ -1,0 +1,17 @@
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Service.deps.json
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Service.dll
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\ref\Service.dll
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Service.pdb
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Data.dll
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Repository.dll
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Repository.pdb
+C:\dotnet\OOP_coursework\Service\bin\Debug\net5.0\Data.pdb
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.csprojAssemblyReference.cache
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.AssemblyInfoInputs.cache
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.AssemblyInfo.cs
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.csproj.CoreCompileInputs.cache
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.csproj.CopyComplete
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.dll
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\ref\Service.dll
+C:\dotnet\OOP_coursework\Service\obj\Debug\net5.0\Service.pdb

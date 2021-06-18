@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{557C22F0-48E5-41AD-B73C-957A9EDAC086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{880BD572-3D6D-4623-827C-0B00836B0848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{5A97FD66-5A16-4142-B640-581DFF583B01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{741B28BA-2602-4AE2-A52E-F17B9F71A07A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{557C22F0-48E5-41AD-B73C-957A9EDAC086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557C22F0-48E5-41AD-B73C-957A9EDAC086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880BD572-3D6D-4623-827C-0B00836B0848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880BD572-3D6D-4623-827C-0B00836B0848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880BD572-3D6D-4623-827C-0B00836B0848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880BD572-3D6D-4623-827C-0B00836B0848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A97FD66-5A16-4142-B640-581DFF583B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A97FD66-5A16-4142-B640-581DFF583B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A97FD66-5A16-4142-B640-581DFF583B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A97FD66-5A16-4142-B640-581DFF583B01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741B28BA-2602-4AE2-A52E-F17B9F71A07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741B28BA-2602-4AE2-A52E-F17B9F71A07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741B28BA-2602-4AE2-A52E-F17B9F71A07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741B28BA-2602-4AE2-A52E-F17B9F71A07A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+@page "/route"
+@inject IRouteService Service
+
+<EntityTable T="Route" Config="Config" Model="Model" Name="Маршруты" Remove="Delete" NewRoute="route/new"/>
+
+@code {
+    protected List<Route> Model;
+
+    protected readonly Dictionary<string, Func<Route, object>> Config = new()
+    {
+        { "Id", (x) => x.Id },
+        { "Название", (x) => x.Name },
+        { "Остановок", (x) => x.Route2Stops.Count },
+        { "Цена", (x) => x.Cost },
+    };
+
+    protected override async Task OnInitializedAsync()
+        => Model = await Service.GetAll().ToListAsync();
+
+    private async Task Delete(int id)
+        => Model = await Service.RemoveAsync(id) switch {
+            _ => await Service.GetAll().ToListAsync()
+            };
+
+}

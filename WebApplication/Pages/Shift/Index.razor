@@ -1,0 +1,25 @@
+@page "/shift"
+@inject IShiftService Service
+
+<EntityTable T="Shift" Config="Config" Model="Model" Name="Смены" Remove="Delete" NewRoute="shift/new"/>
+
+@code {
+    protected List<Shift> Model;
+
+    protected readonly Dictionary<string, Func<Shift, object>> Config = new()
+    {
+        { "Id", (x) => x.Id },
+        { "Маршрут", (x) => x.Route?.Name },
+        { "Водитель", (x) => x.Driver?.Name },
+        { "Номер автобуса", (x) => x.Bus.Plate },
+    };
+
+    protected override async Task OnInitializedAsync()
+        => Model = await Service.GetAll().ToListAsync();
+
+    private async Task Delete(int id)
+        => Model = await Service.RemoveAsync(id) switch {
+            _ => await Service.GetAll().ToListAsync()
+            };
+
+}

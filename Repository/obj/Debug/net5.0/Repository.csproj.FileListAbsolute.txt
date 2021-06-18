@@ -1,0 +1,15 @@
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\Repository.deps.json
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\Repository.dll
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\ref\Repository.dll
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\Repository.pdb
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\Data.dll
+C:\dotnet\OOP_coursework\Repository\bin\Debug\net5.0\Data.pdb
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.csprojAssemblyReference.cache
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.AssemblyInfoInputs.cache
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.AssemblyInfo.cs
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.csproj.CoreCompileInputs.cache
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.csproj.CopyComplete
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.dll
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\ref\Repository.dll
+C:\dotnet\OOP_coursework\Repository\obj\Debug\net5.0\Repository.pdb

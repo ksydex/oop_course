@@ -1,0 +1,57 @@
+@page "/bus/new"
+@inject IBusService Service
+@inject NavigationManager NavigationManager
+
+<h6>Добавить</h6>
+<h3>Автобус</h3>
+<hr/>
+
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label class="control-label">Производитель</label>
+                <input class="form-control" @bind="@_obj.Manufacturer"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Модель</label>
+                <input class="form-control" @bind="@_obj.Model"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Количество мест</label>
+                <input class="form-control" type="number" step="1" @bind="@_obj.Places"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Номерной знак</label>
+                <input class="form-control" @bind="@_obj.Plate"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Год выпуска</label>
+                <input class="form-control" type="number" step="1" @bind="@_obj.YearOfIssue"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" @onclick="@CreateEmployee" value="Сохранить"/>
+                <input type="button" class="btn btn-dark" @onclick="@Cancel" value="Отмена"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    readonly Bus _obj = new Bus();
+
+    private async void CreateEmployee()  
+    {  
+        await Service.CreateAsync(_obj);  
+        Back();  
+    }
+
+    void Cancel() => Back();
+
+    void Back() => NavigationManager.NavigateTo("bus");
+}

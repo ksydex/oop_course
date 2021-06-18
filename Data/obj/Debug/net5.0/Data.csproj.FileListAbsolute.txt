@@ -1,0 +1,12 @@
+C:\dotnet\OOP_coursework\Data\bin\Debug\net5.0\Data.deps.json
+C:\dotnet\OOP_coursework\Data\bin\Debug\net5.0\Data.dll
+C:\dotnet\OOP_coursework\Data\bin\Debug\net5.0\ref\Data.dll
+C:\dotnet\OOP_coursework\Data\bin\Debug\net5.0\Data.pdb
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.csprojAssemblyReference.cache
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.dll
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\ref\Data.dll
+C:\dotnet\OOP_coursework\Data\obj\Debug\net5.0\Data.pdb

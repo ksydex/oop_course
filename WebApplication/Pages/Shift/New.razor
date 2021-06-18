@@ -1,0 +1,92 @@
+@page "/shift/new"
+@inject IShiftService Service
+@inject IDriverService DriverService
+@inject IBusService BusService
+@inject IRouteService RouteService
+@inject NavigationManager NavigationManager
+
+<h6>Добавить</h6>
+<h3>Смена</h3>
+<hr/>
+
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            @if (Drivers == null || Routes == null || Buses == null)
+            {
+            }
+            else
+            {
+                <div class="form-group">
+                    <label class="control-label">Водитель</label>
+                    <select class="form-control" @bind="_obj.DriverId">
+                        @foreach (var d in Drivers)
+                        {
+                            <option value="@d.Id">@d.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Автобус</label>
+                    <select class="form-control" @bind="_obj.BusId">
+                        @foreach (var d in Buses)
+                        {
+                            <option value="@d.Id">@($"{d.Manufacturer} {d.Plate}")</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Маршрут</label>
+                    <select class="form-control" @bind="_obj.RouteId">
+                        @foreach (var d in Routes)
+                        {
+                            <option value="@d.Id">@($"{d.Name}")</option>
+                        }
+                    </select>
+                </div>
+            }
+
+            <div class="form-group">
+                <label class="control-label">Дата</label>
+                <input class="form-control" type="date" @bind="@_obj.Date"/>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" @onclick="@Create" value="Сохранить"/>
+                <input type="button" class="btn btn-dark" @onclick="@Cancel" value="Отмена"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    readonly Shift _obj = new() { Date = DateTime.Today };
+
+    List<Route> Routes { get; set; }
+    List<Driver> Drivers { get; set; }
+    List<Bus> Buses { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Routes = await RouteService.GetAll().ToListAsync();
+        Drivers = await DriverService.GetAll().ToListAsync();
+        Buses = await BusService.GetAll().ToListAsync();
+    }
+
+    private async void Create()
+    {
+        await Service.CreateAsync(_obj);
+        Back();
+    }
+
+    void Cancel() => Back();
+
+    void Back() => NavigationManager.NavigateTo("shift");
+}
